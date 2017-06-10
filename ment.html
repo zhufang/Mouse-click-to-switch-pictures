@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标点击切换图片</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.roundabout-1.0.min.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        ul,ol{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .text{
+            border: 1px solid red;
+        }
+        .clearFix:after{
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            overflow: hidden;
+        }
+        .clearFix{zoom:1}  /*兼容低版本IE*/
+        .pp_four {
+            width: 100%;
+            height: 500px;
+            margin-top: 100px;
+            color: #fff;
+            text-align: center;
+            background: pink;
+            overflow: hidden;
+        }
+        .pp_four .pp_scroll {
+            width: 1000px;
+            height: 420px;
+            margin: 50px auto 30px;
+            position: relative;
+        }
+        .pp_four .pp_scroll .roundabout-holder {
+            width: 1000px;
+            height: 360px;
+            margin: 0 auto;
+        }
+        .pp_four .pp_scroll .roundabout-moveable-item {
+            width: 481px;
+            height: 320px;
+            cursor: pointer;
+            border: 5px solid #fff;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        .pp_four .pp_scroll .roundabout-moveable-item img {
+            width: 100%;
+            height: 100%;
+        }
+        .pp_four .pp_scroll .roundabout-in-focus {
+            cursor: auto;
+            -webkit-transition: all 0.2s linear;
+            -moz-transition: all 0.2s linear;
+            -ms-transition: all 0.2s linear;
+            -o-transition: all 0.2s linear;
+            transition: all 0.2s linear;
+        }
+        .pp_four .pp_scroll .roundabout-in-focus:hover {
+            -webkit-box-shadow: 0 0 20px #787878;
+            -moz-box-shadow: 0 0 20px #787878;
+            box-shadow: 0 0 20px #787878;
+        }
+        .pp_four .pp_scroll #next,
+        .pp_four .pp_scroll #previous {
+            margin: 0 50px;
+            display: inline-block;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="pp_four">
+    <div class="pp_scroll" id="featured-area">
+        <ul>
+            <li><img src="images/pp_s1.jpg" /></li>
+            <li><img src="images/pp_s2.jpg" /></li>
+            <li><img src="images/pp_s3.jpg" /></li>
+            <li><img src="images/pp_s4.jpg" /></li>
+            <li><img src="images/pp_s5.jpg" /></li>
+            <li><img src="images/pp_s6.jpg" /></li>
+        </ul>
+        <a href="javascript:void(0);" id="next"><img src="images/prev.png" alt=""></a>
+        <a href="javascript:void(0);" id="previous"><img src="images/next.png" alt=""></a>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#featured-area ul').roundabout({
+            easing: 'easeOutInCirc',
+            btnNext: '#next',
+            btnPrev: '#previous',
+            duration: 600
+        });
+    });
+</script>
+
+
+</body>
+</html>
